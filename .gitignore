@@ -28,6 +28,10 @@
 .vscode/
 .idea/
 
+#WebGL
+/WebGL Builds
+connectwebgl.zip
+
 # Gradle cache directory
 .gradle/
 

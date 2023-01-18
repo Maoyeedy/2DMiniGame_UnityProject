@@ -3,7 +3,8 @@ using TMPro;
 
 public class ScoreAdd : MonoBehaviour
 {
-    public GameObject directionTip;
+    public CanvasGroup canvas;
+    public float tipFadeDuration = 0.5f;
     [Header("Update Texts")] public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
     public float timeDelta = 2f;
@@ -29,6 +30,7 @@ public class ScoreAdd : MonoBehaviour
         _audio = GetComponent<AudioSource>();
         _defaultY = spawnPoint.y;
         UpdateText();
+        
         targets[_index].SetActive(true);
         for (var i = 1; i < targets.Length; i++)
             targets[i].SetActive(false);
@@ -38,18 +40,18 @@ public class ScoreAdd : MonoBehaviour
     {
         if (!other.CompareTag("Player"))
         {
+            _audio.Play();
+            
             Countdown.CountdownTime += timeDelta;
             HighlightText();
 
             GameProgress.PlayerScore += 1;
             UpdateText();
-            
-            _audio.Play();
 
             if (!_firstOneFinished)
             {
                 _firstOneFinished = true;
-                directionTip.SetActive(false);
+                StartCoroutine(FadeOut());
             }
 
             if (GameProgress.PlayerScore > 0 && GameProgress.PlayerScore % switchPerScore == 0)
@@ -142,5 +144,18 @@ public class ScoreAdd : MonoBehaviour
         var rb = target.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0;
+    }
+    
+    private System.Collections.IEnumerator FadeOut()
+    {
+        float rate = 1.0f / fadeDuration;
+        float progress = 0.0f;
+        while (progress < 1.0)
+        {
+            canvas.alpha = Mathf.Lerp(1, 0, progress);
+            progress += rate * Time.deltaTime;
+            yield return null;
+        }
+        canvas.alpha = 0;
     }
 }

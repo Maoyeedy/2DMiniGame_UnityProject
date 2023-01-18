@@ -49,16 +49,16 @@ public class ScoreAdd : MonoBehaviour
 
     private void HighlightTimer()
     {
-        StartFade();
-        // timerText.color = colorHighlight;
-        // Invoke(nameof(StartFade), delay);
+        // StartFade();
+        timerText.color = colorHighlight;
+        Invoke(nameof(StartFade), delay);
     }
     private void StartFade()
     {
         StartCoroutine(FadeText());
     }
 
-    System.Collections.IEnumerator FadeText()
+    private System.Collections.IEnumerator FadeText()
     {
         float t = 0;
         while (t < 1)

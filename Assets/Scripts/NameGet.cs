@@ -8,7 +8,7 @@ public class InputFieldController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && inputField.text!="Enter Player Name")
         {
             PlayerPrefs.SetString("PlayerNameInput", inputField.text);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

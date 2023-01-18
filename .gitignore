@@ -66,3 +66,5 @@ crashlytics-build.properties
 
 /[Aa]ssets/ScriptsTest.unity
 /[Aa]ssets/UnusedScripts
+Assets/ScriptsTest.unity.meta
+Assets/UnusedScripts.meta

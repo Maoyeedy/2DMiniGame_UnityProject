@@ -1,5 +1,5 @@
 ## 2D MiniGame
-- [x] Offline Builds for Windows & Android
+- [x] [Offline Builds](https://github.com/Maoyeedy/2DMiniGame_UnityProject/releases) for Windows & Android
 - [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl) for all mobile devices
 
 ### Clone the project

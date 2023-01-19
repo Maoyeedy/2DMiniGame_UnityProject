@@ -1,6 +1,8 @@
 ## 2D MiniGame
-- [x] [Offline Builds](https://github.com/Maoyeedy/2DMiniGame_UnityProject/releases) for Windows & Android
-- [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl) for all mobile devices
+- [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl-desktop-2) for desktop.
+- [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl) for Android & iOS.
+- [x] [Offline Builds](https://github.com/Maoyeedy/2DMiniGame_UnityProject/releases) for Windows & Android.
+
 
 ### Clone the project
 - Clone with Github Desktop, as it has built-in support for Git LFS.

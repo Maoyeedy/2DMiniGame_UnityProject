@@ -20,12 +20,10 @@ public class MouseDrag : MonoBehaviour
     {
         Zoom();
 
-        if (Input.GetMouseButton(0))
-        {
-            _mousePosition = Camera.main!.ScreenToWorldPoint(Input.mousePosition);
-            _mousePosition.x += Random.Range(-0.05f, 0.05f);
-            transform.position = Vector2.Lerp(transform.position, _mousePosition, followSpeed * Time.deltaTime);
-        }
+        if (!Input.GetMouseButton(0)) return;
+        _mousePosition = Camera.main!.ScreenToWorldPoint(Input.mousePosition);
+        _mousePosition.x += Random.Range(-0.05f, 0.05f);
+        transform.position = Vector2.Lerp(transform.position, _mousePosition, followSpeed * Time.deltaTime);
     }
 
     private void OnMouseUp()
@@ -39,10 +37,8 @@ public class MouseDrag : MonoBehaviour
 
     public void Zoom()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            transform.localScale *= 1.2f;
-            _spriteRenderer.color = Color.red;
-        }
+        if (!Input.GetMouseButtonDown(0)) return;
+        transform.localScale *= 1.2f;
+        _spriteRenderer.color = Color.red;
     }
 }

@@ -6,7 +6,6 @@ public class QuitAndLoad : MonoBehaviour
 {
     public KeyCode quit = KeyCode.Escape;
     public KeyCode reload = KeyCode.Return;
-    public bool clearScoreOnStart = true;
     public TextMeshProUGUI scoreText;
 
     private void Start()
@@ -18,11 +17,9 @@ public class QuitAndLoad : MonoBehaviour
     {
         if (Input.GetKeyDown(quit))
             Application.Quit();
-        if (Input.GetKeyDown(reload) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            GameProgress.PlayerScore = 0;
-            PlayerPrefs.SetInt("replayed", 1);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        if (!Input.GetKeyDown(reload) && (Input.touchCount <= 0 || Input.GetTouch(0).phase != TouchPhase.Began)) return;
+        GameProgress.PlayerScore = 0;
+        PlayerPrefs.SetInt("replayed", 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

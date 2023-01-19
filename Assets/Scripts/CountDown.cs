@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class Countdown : MonoBehaviour
+public class CountDown : MonoBehaviour
 {
     public TextMeshProUGUI timerText, resultText;
     public GameObject main;

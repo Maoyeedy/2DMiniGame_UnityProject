@@ -1,11 +1,10 @@
 using UnityEngine;
 using TMPro;
 
-public class ScoreAdd : MonoBehaviour
+public class AddScore : MonoBehaviour
 {
     public AudioSource bingo;
     public CanvasGroup canvas;
-    public float tipFadeDuration = 0.5f;
     [Header("Update Texts")] public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
     public float timeDelta = 2f;
@@ -29,7 +28,7 @@ public class ScoreAdd : MonoBehaviour
     {
         _defaultY = spawnPoint.y;
         UpdateText();
-        
+
         targets[_index].SetActive(true);
         for (var i = 1; i < targets.Length; i++)
             targets[i].SetActive(false);
@@ -37,27 +36,25 @@ public class ScoreAdd : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player"))
+        if (other.CompareTag("Player")) return;
+        bingo.Play();
+
+        CountDown.CountdownTime += timeDelta;
+        HighlightText();
+
+        GameProgress.PlayerScore += 1;
+        UpdateText();
+
+        if (!_firstOneFinished)
         {
-            bingo.Play();
-            
-            Countdown.CountdownTime += timeDelta;
-            HighlightText();
-
-            GameProgress.PlayerScore += 1;
-            UpdateText();
-
-            if (!_firstOneFinished)
-            {
-                _firstOneFinished = true;
-                StartCoroutine(FadeOut());
-            }
-
-            if (GameProgress.PlayerScore > 0 && GameProgress.PlayerScore % switchPerScore == 0)
-                SwitchTarget();
-            else
-                ResetTarget(other);
+            _firstOneFinished = true;
+            StartCoroutine(FadeOut());
         }
+
+        if (GameProgress.PlayerScore > 0 && GameProgress.PlayerScore % switchPerScore == 0)
+            SwitchTarget();
+        else
+            ResetTarget(other);
     }
 
     private void UpdateText()
@@ -69,11 +66,9 @@ public class ScoreAdd : MonoBehaviour
     {
         timerText.color = colorHighlight;
         Invoke(nameof(StartFade), delay);
-        if (scaleTimer)
-        {
-            timerText.fontSize = fontSizeHighlight;
-            StartCoroutine(ScaleText());
-        }
+        if (!scaleTimer) return;
+        timerText.fontSize = fontSizeHighlight;
+        StartCoroutine(ScaleText());
     }
 
     private void StartFade()
@@ -127,7 +122,7 @@ public class ScoreAdd : MonoBehaviour
         ResetTarget(targets[_index].GetComponent<Collider2D>());
     }
 
-    private void ResetTarget(Collider2D target)
+    private void ResetTarget(Component target)
     {
         if (_index == 1)
             spawnPoint.y = _defaultY + 0.6f;
@@ -144,11 +139,11 @@ public class ScoreAdd : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0;
     }
-    
+
     private System.Collections.IEnumerator FadeOut()
     {
-        float rate = 1.0f / fadeDuration;
-        float progress = 0.0f;
+        var rate = 1.0f / fadeDuration;
+        var progress = 0.0f;
         while (progress < 1.0)
         {
             canvas.alpha = Mathf.Lerp(1, 0, progress);

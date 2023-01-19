@@ -1,6 +1,6 @@
 ## 2D MiniGame
 - [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl-desktop-2) for desktop.
-- [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl) for Android & iOS.
+- [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl) for mobile.
 - [x] [Offline Builds](https://github.com/Maoyeedy/2DMiniGame_UnityProject/releases) for Windows & Android.
 
 

@@ -1,5 +1,6 @@
 ## 2D MiniGame
-- [x]  Builds for Windows & Android & Mobile WebGL
+- [x] Offline Builds for Windows & Android
+- [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl) for all mobile devices
 
 ### Clone the project
 - Clone with Github Desktop, as it has built-in support for Git LFS.

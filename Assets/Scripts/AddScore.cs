@@ -3,6 +3,7 @@ using TMPro;
 
 public class ScoreAdd : MonoBehaviour
 {
+    public AudioSource bingo;
     public CanvasGroup canvas;
     public float tipFadeDuration = 0.5f;
     [Header("Update Texts")] public TextMeshProUGUI scoreText;
@@ -22,12 +23,10 @@ public class ScoreAdd : MonoBehaviour
     public int switchPerScore = 2;
     private int _index;
     private float _defaultY;
-    private AudioSource _audio;
     private bool _firstOneFinished;
 
     private void Start()
     {
-        _audio = GetComponent<AudioSource>();
         _defaultY = spawnPoint.y;
         UpdateText();
         
@@ -40,7 +39,7 @@ public class ScoreAdd : MonoBehaviour
     {
         if (!other.CompareTag("Player"))
         {
-            _audio.Play();
+            bingo.Play();
             
             Countdown.CountdownTime += timeDelta;
             HighlightText();

@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class QuitAndLoad : MonoBehaviour
 {
@@ -22,6 +21,7 @@ public class QuitAndLoad : MonoBehaviour
         if (Input.GetKeyDown(reload) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             GameProgress.PlayerScore = 0;
+            PlayerPrefs.SetInt("replayed", 1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

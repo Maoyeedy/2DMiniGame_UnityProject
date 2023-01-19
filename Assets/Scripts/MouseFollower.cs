@@ -4,25 +4,11 @@ public class MouseFollower : MonoBehaviour
 {
     public float speed = 5f;
     public float rotationSpeed = 25f;
-    private bool _isMobile;
-
-    private void Start()
-    {
-        _isMobile = Application.platform is RuntimePlatform.Android or RuntimePlatform.IPhonePlayer;
-    }
 
     private void Update()
     {
-        // if (_isMobile)
-        // {
-        //     if(Input.touchCount > 0 && Input.GetTouch(0).phase is TouchPhase.Stationary or TouchPhase.Moved)
-        //         MouseFollowAndRotate();
-        // }
-        // else
-        // {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase is TouchPhase.Stationary or TouchPhase.Moved || Input.GetMouseButton(0))
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase is TouchPhase.Stationary or TouchPhase.Moved || Input.GetMouseButton(0))
                 MouseFollowAndRotate();
-        // }
     }
 
     private void MouseFollowAndRotate()

@@ -1,6 +1,5 @@
 ## 2D MiniGame
-- [x] [Online version](https://www.maoyeedy.tk/) for desktop.
-- [x] [Online version](https://play.unity.com/mg/other/2dminigame-webgl) for iOS & Android.
+- [x] [Online version](https://www.maoyeedy.tk/) that supports all platforms, including iOS & Mac.
 - [x] [Offline Builds](https://github.com/Maoyeedy/2DMiniGame_UnityProject/releases) for Windows & Android.
 
 ### Clone the project

@@ -1,5 +1,5 @@
 ## 2D MiniGame
-- [x] [WebGL build](https://www.maoyeedy.tk/) that supports all platforms, including iOS & Mac.
+- [x] [WebGL version](https://www.maoyeedy.tk/) that supports all platforms, including iOS & Mac.
 - [x] [Offline builds](https://github.com/Maoyeedy/2DMiniGame_UnityProject/releases) for Windows & Android.
 
 ### Clone the project

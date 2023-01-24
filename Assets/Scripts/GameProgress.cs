@@ -37,7 +37,7 @@ public class GameProgress : MonoBehaviour
 
     public static void LoadGame()
     {
-        var filePath = Application.persistentDataPath + "/PlayerData.json";
+        var filePath = $"{Application.persistentDataPath}/PlayerData.json";
         if (!File.Exists(filePath)) return;
         var jsonData = File.ReadAllText(filePath);
         var data = JsonUtility.FromJson<PlayerData>(jsonData);
@@ -49,7 +49,7 @@ public class GameProgress : MonoBehaviour
     {
         var data = new PlayerData { playerName = PlayerName, playerScore = PlayerScore };
         var jsonData = JsonUtility.ToJson(data);
-        var filePath = Application.persistentDataPath + "/PlayerData.json";
+        var filePath = $"{Application.persistentDataPath}/PlayerData.json";
         File.WriteAllText(filePath, jsonData);
     }
 }

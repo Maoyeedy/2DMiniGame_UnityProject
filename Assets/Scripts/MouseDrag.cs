@@ -14,6 +14,7 @@ public class MouseDrag : MonoBehaviour
         _collider = GetComponent<CircleCollider2D>();
         _collider.enabled = true;
     }
+
     private void OnMouseOver()
     {
         Zoom();
@@ -22,12 +23,14 @@ public class MouseDrag : MonoBehaviour
         _mousePosition.x += Random.Range(-0.05f, 0.05f);
         transform.position = Vector2.Lerp(transform.position, _mousePosition, followSpeed * Time.deltaTime);
     }
+
     private void OnMouseUp()
     {
         if (!Input.GetMouseButtonUp(0)) return;
         _spriteRenderer.color = Color.white;
         transform.localScale /= scaleFactor;
     }
+
     public void Zoom()
     {
         if (!Input.GetMouseButtonDown(0)) return;

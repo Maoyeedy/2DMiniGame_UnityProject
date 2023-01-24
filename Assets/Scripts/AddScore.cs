@@ -57,10 +57,12 @@ public class AddScore : MonoBehaviour
         else
             ResetTarget(other);
     }
+
     private void UpdateText()
     {
-        scoreText.text = $"Score: {GameProgress.PlayerScore.ToString()}";
+        scoreText.text = $"Score: {GameProgress.PlayerScore}";
     }
+
     private void HighlightText()
     {
         timerText.color = colorHighlight;
@@ -69,6 +71,7 @@ public class AddScore : MonoBehaviour
         timerText.fontSize = fontSizeHighlight;
         StartCoroutine(ScaleText());
     }
+
     private void StartFade()
     {
         StartCoroutine(FadeText());
@@ -97,6 +100,7 @@ public class AddScore : MonoBehaviour
             yield return null;
         }
     }
+
     private void SwitchTarget()
     {
         if (_index < targets.Length - 1)
@@ -112,11 +116,13 @@ public class AddScore : MonoBehaviour
             EnableTarget();
         }
     }
+
     private void EnableTarget()
     {
         targets[_index].SetActive(true);
         ResetTarget(targets[_index].GetComponent<Collider2D>());
     }
+
     private void ResetTarget(Component target)
     {
         if (_index == 1)
@@ -145,6 +151,7 @@ public class AddScore : MonoBehaviour
             progress += rate * Time.deltaTime;
             yield return null;
         }
+
         canvas.alpha = 0;
     }
 }

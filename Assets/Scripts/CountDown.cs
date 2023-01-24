@@ -1,13 +1,13 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class CountDown : MonoBehaviour
 {
+    public static float CountdownTime;
     public TextMeshProUGUI timerText, resultText;
     public GameObject main;
     public GameObject result;
     public float timeLimit = 5f;
-    public static float CountdownTime;
 
     private void Start()
     {

@@ -6,24 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Scene1.PC.unity
+    path: Assets/Scenes/PC1.unity
     guid: 17e19107735bcfe4ab55c044bb3808bf
   - enabled: 0
-    path: Assets/Scenes/Scene2.PC.unity
+    path: Assets/Scenes/PC2.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/Scene1.Android.unity
+    path: Assets/Scenes/Android1.unity
     guid: 1d65f05d268a5ea40b3f668a6ac86d8e
   - enabled: 0
-    path: Assets/Scenes/Scene2.Android.unity
+    path: Assets/Scenes/Android2.unity
     guid: c4f5b009035949841bca656f65364a49
-  - enabled: 0
-    path: Assets/Scenes/Scene2.WebGL.Mobile.unity
-    guid: feafc1a540ea73c48b40434216c7eb4d
   - enabled: 1
-    path: Assets/Scenes/Scene1.WebGL.Desktop.unity
+    path: Assets/Scenes/WebGL.Selection.unity
+    guid: 2ba121954d0a88d45babe21051b7e6aa
+  - enabled: 1
+    path: Assets/Scenes/WebGL.Desktop1.unity
     guid: a10b039cd9bc0654aab21c75a6bb0e1b
   - enabled: 1
-    path: Assets/Scenes/Scene2.WebGL.Desktop.unity
+    path: Assets/Scenes/WebGL.Desktop2.unity
     guid: 3ef0d85682e00ee48b59cb6a5d507505
+  - enabled: 1
+    path: Assets/Scenes/WebGL.Mobile2.unity
+    guid: feafc1a540ea73c48b40434216c7eb4d
   m_configObjects: {}

@@ -16,10 +16,9 @@ public class MouseFollower : MonoBehaviour
         Vector2 mousePos = Camera.main!.ScreenToWorldPoint(Input.mousePosition);
         Transform transform1;
         (transform1 = transform).position = Vector2.Lerp(transform.position, mousePos, speed * Time.deltaTime);
-        Transform transform2 = transform1;
-        Vector3 position = transform2.position;
-        float angle = Mathf.Atan2(mousePos.y - position.y, mousePos.x - position.x) * Mathf.Rad2Deg;
+        var transform2 = transform1;
+        var position = transform2.position;
+        var angle = Mathf.Atan2(mousePos.y - position.y, mousePos.x - position.x) * Mathf.Rad2Deg;
         transform2.rotation = Quaternion.Lerp(transform2.rotation, Quaternion.Euler(0, 0, angle), Time.deltaTime * rotationSpeed);
-
     }
 }

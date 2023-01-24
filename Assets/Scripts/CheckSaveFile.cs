@@ -1,6 +1,6 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.IO;
 
 public class CheckSaveFile : MonoBehaviour
 {

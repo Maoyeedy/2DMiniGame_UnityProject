@@ -1,5 +1,6 @@
-using UnityEngine;
+using System.Collections;
 using TMPro;
+using UnityEngine;
 
 public class AddScore : MonoBehaviour
 {
@@ -20,9 +21,9 @@ public class AddScore : MonoBehaviour
     [Range(0f, 2f)] public float maxScale = 1.1f;
     public GameObject[] targets;
     public int switchPerScore = 2;
-    private int _index;
     private float _defaultY;
     private bool _firstOneFinished;
+    private int _index;
 
     private void Start()
     {
@@ -56,12 +57,10 @@ public class AddScore : MonoBehaviour
         else
             ResetTarget(other);
     }
-
     private void UpdateText()
     {
         scoreText.text = $"Score: {GameProgress.PlayerScore.ToString()}";
     }
-
     private void HighlightText()
     {
         timerText.color = colorHighlight;
@@ -70,13 +69,12 @@ public class AddScore : MonoBehaviour
         timerText.fontSize = fontSizeHighlight;
         StartCoroutine(ScaleText());
     }
-
     private void StartFade()
     {
         StartCoroutine(FadeText());
     }
 
-    private System.Collections.IEnumerator FadeText()
+    private IEnumerator FadeText()
     {
         float t = 0;
         while (t < 1)
@@ -89,7 +87,7 @@ public class AddScore : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator ScaleText()
+    private IEnumerator ScaleText()
     {
         float t = 0;
         while (t < 1)
@@ -99,7 +97,6 @@ public class AddScore : MonoBehaviour
             yield return null;
         }
     }
-
     private void SwitchTarget()
     {
         if (_index < targets.Length - 1)
@@ -115,13 +112,11 @@ public class AddScore : MonoBehaviour
             EnableTarget();
         }
     }
-
     private void EnableTarget()
     {
         targets[_index].SetActive(true);
         ResetTarget(targets[_index].GetComponent<Collider2D>());
     }
-
     private void ResetTarget(Component target)
     {
         if (_index == 1)
@@ -140,7 +135,7 @@ public class AddScore : MonoBehaviour
         rb.angularVelocity = 0;
     }
 
-    private System.Collections.IEnumerator FadeOut()
+    private IEnumerator FadeOut()
     {
         var rate = 1.0f / fadeDuration;
         var progress = 0.0f;

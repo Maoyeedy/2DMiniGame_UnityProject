@@ -4,8 +4,8 @@ using UnityEngine;
 public class NameSetColliderWidth : MonoBehaviour
 {
     public float sizePerLetter = 0.6f;
-    private TextMeshProUGUI _name;
     private BoxCollider2D _collider;
+    private TextMeshProUGUI _name;
 
     private void Start()
     {
